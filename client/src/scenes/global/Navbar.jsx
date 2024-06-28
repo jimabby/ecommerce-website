@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Badge, Box, IconButton } from '@mui/material';
 import { PersonOutline, ShoppingBagOutlined, MenuOutlined, SearchOutlined } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import shades from '../../theme';
+import {shades} from '../../theme';
 import { setIsCartOpen } from '../../state';
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
         width="80%"
         margin="auto"
         display="flex"
-        justifyContent="space-betweeen"
+        justifyContent="space-between"
         alignItems="center"
       >
         <Box
@@ -34,7 +34,7 @@ const Navbar = () => {
           sx={{'&:hover': {cursor:"pointer"}}}  
           color={shades.secondary[500]}
         >
-          ECOMMERCE
+          iDesign
         </Box>
         <Box
           display="flex"
