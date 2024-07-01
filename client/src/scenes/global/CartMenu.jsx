@@ -46,7 +46,7 @@ const CartMenu = () => {
         height="100%"
         backgroundColor="white"
       >
-        <Box padding="30px" overflow="auto" height="30%">
+        <Box padding="30px" overflow="auto" height="100%">
           {/* Header */}
           <FlexBox mb="15px">
             <Typography variant='h3'>SHOPPING BAG ({cart.length})</Typography>
@@ -77,14 +77,14 @@ const CartMenu = () => {
                         <CloseIcon />
                       </IconButton>
                     </FlexBox>
-                    {Array.isArray(item?.attributes?.longDescription) ? (
-                      item.attributes.longDescription.map((paragraph, index) => (
+                    {Array.isArray(item?.attributes?.shortDescription) ? (
+                      item.attributes.shortDescription.map((paragraph, index) => (
                         <Typography key={index}>
                           {paragraph.children[0].text}
                         </Typography>
                       ))
                     ) : (
-                      <Typography>{item?.attributes?.longDescription}</Typography>
+                      <Typography>{item?.attributes?.shortDescription}</Typography>
                     )}
                     {/* Amount */}
                     <FlexBox m="15px 0">
