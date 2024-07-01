@@ -77,7 +77,15 @@ const CartMenu = () => {
                         <CloseIcon />
                       </IconButton>
                     </FlexBox>
-                    <Typography>{item.attributes.shortDescription}</Typography>
+                    {Array.isArray(item?.attributes?.longDescription) ? (
+                      item.attributes.longDescription.map((paragraph, index) => (
+                        <Typography key={index}>
+                          {paragraph.children[0].text}
+                        </Typography>
+                      ))
+                    ) : (
+                      <Typography>{item?.attributes?.longDescription}</Typography>
+                    )}
                     {/* Amount */}
                     <FlexBox m="15px 0">
                       <Box

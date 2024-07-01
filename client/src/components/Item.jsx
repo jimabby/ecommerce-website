@@ -4,7 +4,7 @@ import { IconButton, Box, Typography, useTheme, Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { shades } from '../theme';
-import addToCart from '../state';
+import { addToCart } from '../state';
 import { useNavigate } from 'react-router-dom';
 
 const Item = ({item, width}) => {
@@ -26,6 +26,12 @@ const Item = ({item, width}) => {
       }
     }
   } = image;
+
+  const formattedCategory = category 
+    ? category
+        .replace(/([A-Z])/g, " $1") // Add space before uppercase letters
+        .replace(/^./, (str) => str.toUpperCase()) // Capitalize the first letter
+    : '';
 
   return (
     <Box width={width}>
@@ -73,9 +79,7 @@ const Item = ({item, width}) => {
 
       <Box mt="3px">
         <Typography variant="subtitle2" color={neutral.dark}>
-          {category.replace(/([A-Z])/g, " $1")
-                   .replace(/^./, (str) => str.toUpperCase())
-          }
+          {formattedCategory}
         </Typography>
         <Typography>{name}</Typography>
         <Typography fontWeight="bold">${price}</Typography>
